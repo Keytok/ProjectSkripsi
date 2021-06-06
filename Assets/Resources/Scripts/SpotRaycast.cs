@@ -18,6 +18,7 @@ public class SpotRaycast : MonoBehaviour
     public MapUIManager UImanager;
 
     public QuantumTek.QuantumUI.QUI_SceneTransition sceneTransition;
+    public QuantumTek.QuantumUI.QUI_Window confirmWindow;
 
     void OnCollisionStay(Collision collision)
     {
@@ -38,6 +39,43 @@ public class SpotRaycast : MonoBehaviour
                 }
             }
         }
+
+        if(loadState)
+        {
+            loadState = false;
+            GameObject adminManager = GameObject.Find("Admin Manager");
+            if (adminManager != null)
+            {
+                adminManager.GetComponent<AdminManager>().setDefaultChar(int.Parse(collision.transform.root.GetComponent<MarkerProperties>().mChar));
+            }
+            confirmWindow.SetActive(true);
+        }
+
+    }
+
+    private bool loadState = true;
+
+    // void OnCollisionEnter(Collision collision)
+    // {
+    //     if (loadState)
+    //     {
+    //         GameObject adminManager = GameObject.Find("Admin Manager");
+    //         if (adminManager != null)
+    //         {
+    //             adminManager.GetComponent<AdminManager>().setDefaultChar(int.Parse(collision.transform.root.GetComponent<MarkerProperties>().mChar));
+    //         }
+    //         sceneTransition.LoadScene(sceneName);
+    //     }
+    // }
+
+    void OnCollisionExit(Collision collision)
+    {
+        loadState = true;
+    }
+
+    public void loadScene()
+    {
+        sceneTransition.LoadScene(sceneName);
     }
 
 }

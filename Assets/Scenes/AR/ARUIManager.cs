@@ -567,6 +567,10 @@ public class ARUIManager : MonoBehaviour
             GameObject.Find("AR Session").GetComponent<UnityEngine.XR.ARFoundation.ARSession>().enabled = true;
             GameObject.Find("Pause Window").GetComponent<QuantumTek.QuantumUI.QUI_Window>().SetActive(false);
             pnlBackground.SetActive(false);
+            frameSum = 0;
+            frameCounted = 0;
+            maxFrameRate = 0;
+            minFrameRate = 500;
         }
     }
 
@@ -595,6 +599,11 @@ public class ARUIManager : MonoBehaviour
             }
         }
     }
+
+    private float frameSum = 0;
+    private int frameCounted = 0;
+    private int maxFrameRate = 0;
+    private int minFrameRate = 500;
     void Update()
     {
         if (pnlBackground.activeSelf && escNotPressed && FileBrowser.IsOpen == false)
@@ -653,6 +662,15 @@ public class ARUIManager : MonoBehaviour
         {
             float fps = 1 / Time.unscaledDeltaTime;
             txtFPS.text = $"FPS: {Mathf.Ceil(fps)}";
+            if (fps > maxFrameRate)
+                maxFrameRate = (int)fps;
+            if (fps < minFrameRate)
+                minFrameRate = (int)fps;
+            frameSum += fps;
+            frameCounted++;
+            txtFPS.text += "\nAVG: " + (frameSum / frameCounted).ToString("f2");
+            txtFPS.text += "\nMAX: " + maxFrameRate;
+            txtFPS.text += "\nMIN: " + minFrameRate;
 
             // System.Diagnostics.PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available MBytes");
             // Debug.Log(ramCounter.NextValue() + "MB");
