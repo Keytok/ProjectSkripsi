@@ -232,6 +232,10 @@ public class MapUIManager : MonoBehaviour
         {
             showToast("Name already used", 1);
         }
+        else if (propName.text == "")
+        {
+            showToast("Name required", 1);
+        }
         else
         {
             GameObject tObj = Instantiate(markerObject, tTarget, Quaternion.identity);
@@ -273,6 +277,10 @@ public class MapUIManager : MonoBehaviour
         if (editName.text != oldName && listManager.listContains(editName.text))
         {
             showToast("Name already used", 1);
+        }
+        else if (editName.text == "")
+        {
+            showToast("Name required", 1);
         }
         else
         {

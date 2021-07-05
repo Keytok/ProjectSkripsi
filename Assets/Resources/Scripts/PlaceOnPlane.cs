@@ -165,14 +165,16 @@ namespace UnityEngine.XR.ARFoundation.Samples
             if (spawnedObject != null)
             {
                 Vector3 temp = spawnedObject.transform.localScale;
-                if (temp.x >= 0.095f)
+                // if (temp.x >= 0.095f)
+                if (temp.x >= 0.1f)
                 {
                     temp.x += 0.1f;
                     temp.y += 0.1f;
                     temp.z += 0.1f;
                     spawnedObject.transform.localScale = temp;
                 }
-                else if (temp.x >= 0.0045f)
+                // else if (temp.x >= 0.0045f)
+                else
                 {
                     temp.x += 0.005f;
                     temp.y += 0.005f;
@@ -194,7 +196,8 @@ namespace UnityEngine.XR.ARFoundation.Samples
                     temp.z -= 0.1f;
                     spawnedObject.transform.localScale = temp;
                 }
-                else if (temp.x >= 0.075f)
+                // else if (temp.x >= 0.075f)
+                else if (temp.x >= 0.0055f)
                 {
                     temp.x -= 0.005f;
                     temp.y -= 0.005f;

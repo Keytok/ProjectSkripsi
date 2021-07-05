@@ -4839,7 +4839,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 0.5
@@ -5178,7 +5178,7 @@ PrefabInstance:
     - target: {fileID: 1297959611246878864, guid: 14a9e06947ddf416ab7c504ac90e5545,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1297959611246878864, guid: 14a9e06947ddf416ab7c504ac90e5545,
         type: 3}
@@ -5273,7 +5273,7 @@ PrefabInstance:
     - target: {fileID: 1297959611246878865, guid: 14a9e06947ddf416ab7c504ac90e5545,
         type: 3}
       propertyPath: m_VerticalAlignment
-      value: 512
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 1297959611246878865, guid: 14a9e06947ddf416ab7c504ac90e5545,
         type: 3}

@@ -59,7 +59,7 @@ public class ARUIManager : MonoBehaviour
         // Path: C:\Users
         // Icon: default (folder icon)
         FileBrowser.AddQuickLink("Users", "C:\\Users", null);
-        FileBrowser.AddQuickLink("Models", "D:\\Kevin\\Documents\\TA\\Unity\\TA1\\Models", null);
+        FileBrowser.AddQuickLink("Models", "D:\\Kevin\\Documents\\TA\\Unity\\Models", null);
 
         // Show a save file dialog 
         // onSuccess event: not registered (which means this dialog is pretty useless)
@@ -390,14 +390,16 @@ public class ARUIManager : MonoBehaviour
     public void scaleUp()
     {
         Vector3 temp = character.transform.localScale;
-        if (temp.x >= 0.095f)
+        // if (temp.x >= 0.095f)
+        if (temp.x >= 0.1f)
         {
             temp.x += 0.1f;
             temp.y += 0.1f;
             temp.z += 0.1f;
             character.transform.localScale = temp;
         }
-        else if (temp.x >= 0.0045f)
+        // else if (temp.x >= 0.0045f)
+        else
         {
             temp.x += 0.005f;
             temp.y += 0.005f;
@@ -416,7 +418,8 @@ public class ARUIManager : MonoBehaviour
             temp.z -= 0.1f;
             character.transform.localScale = temp;
         }
-        else if (temp.x >= 0.075f)
+        // else if (temp.x >= 0.075f)
+        else if (temp.x >= 0.0055f)
         {
             temp.x -= 0.005f;
             temp.y -= 0.005f;
